@@ -1,79 +1,159 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
-  <title>Babèredoll</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Babèredoll Shop</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+<style>
+  body {
+    background-color: #880055; /* Dark pink */
+    font-family: 'Great Vibes', cursive;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+  }
+  header {
+    background-color: #000; /* black top header */
+    padding: 20px;
+    text-align: center;
+    font-size: 32px;
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px #ff1493, 0 0 20px #ff69b4;
+  }
+  .cart-counter {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    color: hotpink;
+    text-shadow: 0 0 6px #fff, 0 0 10px #ff1493;
+  }
+  .products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+    gap: 20px;
+    padding: 20px;
+  }
+  .card {
+    background-color: #330022; /* darker gothic card */
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 0 0 10px #ff1493;
+    text-align: center;
+  }
+  .card img {
+    max-width: 100%;
+    border-radius: 10px;
+    margin-bottom: 10px;
+  }
+  .card h3 {
+    margin: 10px 0;
+    font-size: 20px;
+    color: #ff69b4;
+  }
+  .card p.price {
+    font-size: 18px;
+    color: #ff1493;
+  }
+  .card button {
+    background-color: #ff1493;
+    border: none;
+    padding: 10px 20px;
+    color: #fff;
+    font-size: 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    text-shadow: 0 0 3px #fff;
+  }
+  .card button:hover {
+    background-color: #ff4da6;
+    transform: scale(1.05);
+    transition: 0.3s;
+  }
+</style>
 </head>
 <body>
 
-<!-- ===== Glittery stars ===== -->
-<!-- 50 stars scattered randomly -->
-<div class="star" style="top:20px; left:50px;"></div>
-<div class="star" style="top:80px; left:200px;"></div>
-<div class="star" style="top:150px; left:400px;"></div>
-<div class="star" style="top:250px; left:100px;"></div>
-<div class="star" style="top:300px; left:350px;"></div>
-<div class="star" style="top:50px; left:500px;"></div>
-<div class="star" style="top:120px; left:600px;"></div>
-<div class="star" style="top:200px; left:700px;"></div>
-<div class="star" style="top:320px; left:450px;"></div>
-<div class="star" style="top:380px; left:200px;"></div>
-<!-- (duplicate and adjust top/left to reach 50 stars in total) -->
+<header>Babèredoll — Dark Doll Y2K Vibes</header>
 
-<!-- ===== Flying bats ===== -->
-<div class="bat" style="top:50px;"></div>
-<div class="bat" style="top:120px; animation-delay:2s;"></div>
-<div class="bat" style="top:200px; animation-delay:4s;"></div>
-<div class="bat" style="top:300px; animation-delay:6s;"></div>
-<div class="bat" style="top:400px; animation-delay:8s;"></div>
+<div class="cart-counter">
+  🛒 Cart Items: <span id="cart-count">0</span>
+</div>
 
-<header>
-  <div class="logo-text">Babèredoll</div>
-  <div class="tagline">dark doll • y2k couture • haunted glam</div>
-
-  <nav class="nav">
-    <a href="#">Home</a>
-    <a href="#">Shop</a>
-    <a href="#">About</a>
-    <a href="#">Contact</a>
-  </nav>
-</header>
-
-</header>
-
-<section class="hero">
-  <h2>Built for the Baddest</h2>
-  <p>Dark Pink • Glitter • Monster High Vibes</p>
-</section>
-
-<section class="products">
+<div class="products">
+  <!-- Product 1 -->
   <div class="card">
-    <img src="product1.jpg" alt="Product 1" class="product-img">
-    <p>Dark Doll Top</p>
+    <img src="images/product1.png" alt="Glitter Skull Top">
+    <h3>Glitter Skull Top</h3>
+    <p class="price">LKR 5000</p>
+    <button onclick='addToCart({id:"product1",name:"Glitter Skull Top",price:5000})'>💖 Add to Cart</button>
   </div>
-  <div class="card">
-    <img src="product2.jpg" alt="Product 2" class="product-img">
-    <p>Y2K Mini Skirt</p>
-  </div>
-  <div class="card">
-    <img src="product3.jpg" alt="Product 3" class="product-img">
-    <p>Lace Baby Tee</p>
-  </div>
-  <div class="card">
-    <img src="product4.jpg" alt="Product 4" class="product-img">
-    <p>Goth Bow Tee</p>
-  </div>
-  <div class="card">
-    <img src="product5.jpg" alt="Product 5" class="product-img">
-    <p>Babè Shoes</p>
-  </div>
-</section>
 
-<footer>
-  © 2026 Babèredoll
-</footer>
+  <!-- Product 2 -->
+  <div class="card">
+    <img src="images/product2.png" alt="Dark Doll Skirt">
+    <h3>Dark Doll Skirt</h3>
+    <p class="price">LKR 4500</p>
+    <button onclick='addToCart({id:"product2",name:"Dark Doll Skirt",price:4500})'>💖 Add to Cart</button>
+  </div>
+
+  <!-- Product 3 -->
+  <div class="card">
+    <img src="images/product3.png" alt="Y2K Choker">
+    <h3>Y2K Choker</h3>
+    <p class="price">LKR 1500</p>
+    <button onclick='addToCart({id:"product3",name:"Y2K Choker",price:1500})'>💖 Add to Cart</button>
+  </div>
+
+  <!-- Product 4 -->
+  <div class="card">
+    <img src="images/product4.png" alt="Dark Doll Boots">
+    <h3>Dark Doll Boots</h3>
+    <p class="price">LKR 6000</p>
+    <button onclick='addToCart({id:"product4",name:"Dark Doll Boots",price:6000})'>💖 Add to Cart</button>
+  </div>
+
+  <!-- Product 5 -->
+  <div class="card">
+    <img src="images/product5.png" alt="Glitter Hair Clips">
+    <h3>Glitter Hair Clips</h3>
+    <p class="price">LKR 1200</p>
+    <button onclick='addToCart({id:"product5",name:"Glitter Hair Clips",price:1200})'>💖 Add to Cart</button>
+  </div>
+</div>
+
+<script src="https://js.stripe.com/v3/"></script>
+<script>
+let cart = [];
+const cartCount = document.getElementById("cart-count");
+
+function addToCart(product) {
+  cart.push(product);
+  cartCount.textContent = cart.length;
+}
+
+// Checkout function calls backend (Stripe test)
+function checkout() {
+  fetch("https://YOUR_BACKEND_URL/api/create-checkout-session", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ cart })
+  })
+  .then(res => res.json())
+  .then(data => {
+    if (data.url) {
+      window.location = data.url;
+    }
+  });
+}
+</script>
 
 </body>
 </html>
+
+</body>
+</html>
+
