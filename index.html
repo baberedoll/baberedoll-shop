@@ -14,18 +14,63 @@
   Babèredoll — Dark Doll Y2K Vibes
 </header>
 
+<!-- Categories -->
 <div class="categories">
-  <a href="category.html?cat=tops">Tops</a>
-  <a href="category.html?cat=skirts">Skirts</a>
-  <a href="category.html?cat=accessories">Accessories</a>
-  <a href="category.html?cat=shoes">Shoes</a>
+  <button onclick="showCategory('tops')">Tops</button>
+  <button onclick="showCategory('skirts')">Skirts</button>
+  <button onclick="showCategory('accessories')">Accessories</button>
+  <button onclick="showCategory('shoes')">Shoes</button>
 </div>
 
+<!-- Products -->
+<div class="products" id="product-list">
+  <!-- Products will be shown here dynamically -->
+</div>
+
+<!-- Cart -->
 <div class="cart-counter">
   🛒 Cart Items: <span id="cart-count">0</span>
   <button id="checkout-btn" onclick="checkout()">Checkout</button>
 </div>
 
 <script src="cart.js"></script>
+<script>
+const productsData = {
+  tops: [
+    {id:"top1", name:"Glitter Skull Top", price:5000, img:"https://via.placeholder.com/200x200.png?text=Glitter+Skull+Top"},
+    {id:"top2", name:"Pink Y2K Top", price:4500, img:"https://via.placeholder.com/200x200.png?text=Pink+Y2K+Top"}
+  ],
+  skirts: [
+    {id:"skirt1", name:"Dark Doll Skirt", price:4500, img:"https://via.placeholder.com/200x200.png?text=Dark+Doll+Skirt"}
+  ],
+  accessories: [
+    {id:"acc1", name:"Y2K Choker", price:1500, img:"https://via.placeholder.com/200x200.png?text=Y2K+Choker"}
+  ],
+  shoes: [
+    {id:"shoe1", name:"Dark Doll Boots", price:6000, img:"https://via.placeholder.com/200x200.png?text=Dark+Doll+Boots"}
+  ]
+};
+
+const productList = document.getElementById("product-list");
+
+function showCategory(cat) {
+  productList.innerHTML = ''; // clear previous products
+  productsData[cat].forEach(p => {
+    const div = document.createElement("div");
+    div.classList.add("card");
+    div.innerHTML = `
+      <img src="${p.img}" alt="${p.name}">
+      <h3>${p.name}</h3>
+      <p class="price">LKR ${p.price}</p>
+      <button onclick='addToCart(${JSON.stringify(p)})'>💖 Add to Cart</button>
+    `;
+    productList.appendChild(div);
+  });
+}
+
+// Show tops by default
+showCategory('tops');
+</script>
+
 </body>
 </html>
