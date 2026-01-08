@@ -16,14 +16,48 @@
     margin: 0;
     padding: 0;
   }
+
   header {
     background-color: #000; /* black top header */
     padding: 20px;
     text-align: center;
     font-size: 32px;
     letter-spacing: 2px;
-    text-shadow: 0 0 10px #ff1493, 0 0 20px #ff69b4;
+    text-shadow: 0 0 10px #ff1493, 0 0 20px #ff69b4; /* glittery glow */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
   }
+
+  header img {
+    height: 60px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #ff1493, 0 0 20px #ff69b4;
+  }
+
+  .categories {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 15px 0;
+    font-size: 18px;
+  }
+
+  .categories a {
+    color: hotpink;
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: 0.3s;
+    box-shadow: 0 0 5px #ff69b4, 0 0 10px #ff1493;
+  }
+
+  .categories a:hover {
+    background-color: #ff1493;
+    color: #fff;
+  }
+
   .cart-counter {
     position: absolute;
     top: 20px;
@@ -32,34 +66,69 @@
     font-weight: bold;
     color: hotpink;
     text-shadow: 0 0 6px #fff, 0 0 10px #ff1493;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
   }
+
+  #checkout-btn {
+    margin-top: 10px;
+    background-color: #ff1493;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 10px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 16px;
+    text-shadow: 0 0 3px #fff;
+  }
+
+  #checkout-btn:hover {
+    background-color: #ff4da6;
+    transform: scale(1.05);
+    transition: 0.3s;
+  }
+
   .products {
     display: grid;
     grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
     gap: 20px;
     padding: 20px;
   }
+
   .card {
-    background-color: #330022; /* darker gothic card */
+    background-color: #330022;
     padding: 15px;
     border-radius: 15px;
-    box-shadow: 0 0 10px #ff1493;
+    box-shadow: 0 0 10px #ff1493, 0 0 20px #ff69b4; /* glittery card */
     text-align: center;
+    transition: transform 0.3s;
   }
+
+  .card:hover {
+    transform: scale(1.05);
+  }
+
   .card img {
     max-width: 100%;
     border-radius: 10px;
     margin-bottom: 10px;
+    box-shadow: 0 0 5px #ff69b4, 0 0 10px #ff1493;
   }
+
   .card h3 {
     margin: 10px 0;
     font-size: 20px;
     color: #ff69b4;
+    text-shadow: 0 0 3px #fff, 0 0 6px #ff1493;
   }
+
   .card p.price {
     font-size: 18px;
     color: #ff1493;
+    text-shadow: 0 0 3px #fff, 0 0 6px #ff69b4;
   }
+
   .card button {
     background-color: #ff1493;
     border: none;
@@ -70,25 +139,39 @@
     cursor: pointer;
     text-shadow: 0 0 3px #fff;
   }
+
   .card button:hover {
     background-color: #ff4da6;
     transform: scale(1.05);
     transition: 0.3s;
   }
+
 </style>
 </head>
 <body>
 
-<header>Babèredoll — Dark Doll Y2K Vibes</header>
+<header>
+  <img src="images/logo.png" alt="Babèredoll Logo">
+  Babèredoll — Dark Doll Y2K Vibes
+</header>
+
+<!-- Categories -->
+<div class="categories">
+  <a href="#tops">Tops</a>
+  <a href="#skirts">Skirts</a>
+  <a href="#accessories">Accessories</a>
+  <a href="#shoes">Shoes</a>
+</div>
 
 <div class="cart-counter">
   🛒 Cart Items: <span id="cart-count">0</span>
+  <button id="checkout-btn" onclick="checkout()">Checkout</button>
 </div>
 
-<div class="products">
+<div class="products" id="tops">
   <!-- Product 1 -->
   <div class="card">
-    <img src="https://via.placeholder.com/200x200.png?text=Product+1" alt="Glitter Skull Top">
+    <img src="https://via.placeholder.com/200x200.png?text=Glitter+Skull+Top" alt="Glitter Skull Top">
     <h3>Glitter Skull Top</h3>
     <p class="price">LKR 5000</p>
     <button onclick='addToCart({id:"product1",name:"Glitter Skull Top",price:5000})'>💖 Add to Cart</button>
@@ -96,7 +179,7 @@
 
   <!-- Product 2 -->
   <div class="card">
-    <img src="https://via.placeholder.com/200x200.png?text=Product+2" alt="Dark Doll Skirt">
+    <img src="https://via.placeholder.com/200x200.png?text=Dark+Doll+Skirt" alt="Dark Doll Skirt">
     <h3>Dark Doll Skirt</h3>
     <p class="price">LKR 4500</p>
     <button onclick='addToCart({id:"product2",name:"Dark Doll Skirt",price:4500})'>💖 Add to Cart</button>
@@ -104,7 +187,7 @@
 
   <!-- Product 3 -->
   <div class="card">
-    <img src="https://via.placeholder.com/200x200.png?text=Product+3" alt="Y2K Choker">
+    <img src="https://via.placeholder.com/200x200.png?text=Y2K+Choker" alt="Y2K Choker">
     <h3>Y2K Choker</h3>
     <p class="price">LKR 1500</p>
     <button onclick='addToCart({id:"product3",name:"Y2K Choker",price:1500})'>💖 Add to Cart</button>
@@ -112,7 +195,7 @@
 
   <!-- Product 4 -->
   <div class="card">
-    <img src="https://via.placeholder.com/200x200.png?text=Product+4" alt="Dark Doll Boots">
+    <img src="https://via.placeholder.com/200x200.png?text=Dark+Doll+Boots" alt="Dark Doll Boots">
     <h3>Dark Doll Boots</h3>
     <p class="price">LKR 6000</p>
     <button onclick='addToCart({id:"product4",name:"Dark Doll Boots",price:6000})'>💖 Add to Cart</button>
@@ -120,7 +203,7 @@
 
   <!-- Product 5 -->
   <div class="card">
-    <img src="https://via.placeholder.com/200x200.png?text=Product+5" alt="Glitter Hair Clips">
+    <img src="https://via.placeholder.com/200x200.png?text=Glitter+Hair+Clips" alt="Glitter Hair Clips">
     <h3>Glitter Hair Clips</h3>
     <p class="price">LKR 1200</p>
     <button onclick='addToCart({id:"product5",name:"Glitter Hair Clips",price:1200})'>💖 Add to Cart</button>
@@ -139,6 +222,10 @@ function addToCart(product) {
 
 // Checkout function calls backend (Stripe sandbox)
 function checkout() {
+  if(cart.length === 0){
+    alert("Your cart is empty!");
+    return;
+  }
   fetch("https://YOUR_BACKEND_URL/api/create-checkout-session", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -156,7 +243,5 @@ function checkout() {
 </body>
 </html>
 
-</body>
-</html>
 
-
+ 
