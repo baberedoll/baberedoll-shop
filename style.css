@@ -304,6 +304,116 @@ h1, h2, h3, h4 {
   text-decoration: underline;
   color: #FF4DB8;
 }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: linear-gradient(180deg, #1b132b, #2d1b3f);
+  color: #fff;
+}
+
+/* ---------- HEADER ---------- */
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 40px;
+  background: #241733;
+}
+
+.nav-left, .nav-right {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-left a, .nav-right a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 600;
+}
+
+.nav-left a:hover, .nav-right a:hover {
+  color: #ff4da6;
+}
+
+.logo-container {
+  flex: 1;
+  text-align: center;
+}
+
+.logo {
+  max-height: 70px;
+  border-radius: 12px;
+  border: 2px solid #ff4da6;
+}
+
+/* ---------- HERO ---------- */
+.hero {
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  color: #ff4da6;
+}
+
+.hero p {
+  margin-top: 10px;
+  opacity: 0.9;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 30px;
+  padding: 14px 30px;
+  background: #ff4da6;
+  color: #1b132b;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* ---------- GRID ---------- */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+  padding: 50px;
+}
+
+.card {
+  background: #2d1b3f;
+  border-radius: 20px;
+  padding: 25px;
+  text-align: center;
+  transition: 0.3s;
+  border: 2px solid transparent;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  border-color: #ff4da6;
+  box-shadow: 0 0 25px #ff4da6;
+}
+
+.card h3 {
+  margin-top: 10px;
+  color: #ff9ad5;
+}
+
+/* ---------- FOOTER ---------- */
+footer {
+  text-align: center;
+  padding: 25px;
+  background: #241733;
+  font-size: 0.9rem;
+}
+
 
 
 
