@@ -136,4 +136,102 @@ header img {
   transform: scale(1.05);
   transition: 0.3s;
 }
+/* Basic Styles */
+body {
+  margin: 0;
+  font-family: 'Raleway', sans-serif;
+  background-color: #1E1B2C;
+  color: #fff;
+}
+
+.site-header {
+  text-align: center;
+  padding: 20px;
+  background-color: #2D2740;
+}
+
+.site-header .logo {
+  font-family: 'Creepster', cursive;
+  font-size: 40px;
+  color: #FF2D95;
+  margin-bottom: 10px;
+}
+
+.nav a {
+  color: #fff;
+  margin: 0 15px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.nav a.active {
+  color: #FF2D95;
+}
+
+/* Hero Section */
+.hero {
+  text-align: center;
+  padding: 40px 20px;
+  background-color: #2D2740;
+}
+
+.hero h2 {
+  font-family: 'Creepster', cursive;
+  font-size: 36px;
+  color: #FF2D95;
+}
+
+.hero p {
+  font-size: 18px;
+  color: #fff;
+}
+
+/* Categories Grid */
+.category-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  padding: 40px 20px;
+}
+
+.category-card {
+  width: 200px;
+  text-align: center;
+  text-decoration: none;
+  color: #fff;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.category-card img {
+  width: 100%;
+  border-radius: 15px;
+  border: 2px solid #FF2D95;
+}
+
+.category-card h3 {
+  margin-top: 10px;
+  font-family: 'Creepster', cursive;
+}
+
+.category-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px #FF2D95;
+}
+
+/* Footer */
+.site-footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #2D2740;
+  font-size: 14px;
+}
+
+.site-footer a {
+  color: #FF2D95;
+  text-decoration: none;
+  margin: 0 5px;
+}
+
+
 
