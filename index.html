@@ -2,90 +2,35 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>BabèRedoll Shop</title>
+  <title>BabèRedoll</title>
   <link rel="stylesheet" href="styles.css">
-  <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Raleway&display=swap" rel="stylesheet">
 </head>
 <body>
 
-  <!-- Header -->
-  <header class="site-header">
-    <h1 class="logo">BabèRedoll</h1>
-    <nav class="nav">
-      <a href="index.html" class="active">Home</a>
-      <a href="categories.html">Categories</a>
-      <a href="cart.html">Cart</a>
-    </nav>
-  </header>
+<header class="site-header">
+  <nav class="nav-left">
+    <a href="index.html">Home</a>
+  </nav>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="hero-content">
-      <h2>Welcome to BabèRedoll</h2>
-      <p>Your ultimate girly shop with a Monster High twist!</p>
-      <a href="categories.html" class="cta-btn">Shop Now</a>
-    </div>
-  </section>
+  <div class="logo-container">
+    <img src="assets/images/1767784596.jpg" class="logo">
+  </div>
 
-  <!-- Featured Categories -->
-  <section class="featured-categories">
-    <h2>Featured Categories</h2>
-    <div class="category-grid">
-      <a href="products.html?category=dresses" class="category-card">
-        <img src="assets/images/dress.jpg" alt="Dresses">
-        <h3>Dresses</h3>
-      </a>
-      <a href="products.html?category=accessories" class="category-card">
-        <img src="assets/images/accessories.jpg" alt="Accessories">
-        <h3>Accessories</h3>
-      </a>
-      <a href="products.html?category=shoes" class="category-card">
-        <img src="assets/images/shoes.jpg" alt="Shoes">
-        <h3>Shoes</h3>
-      </a>
-    </div>
-  </section>
+  <nav class="nav-right">
+    <a href="categories.html">Categories</a>
+    <a href="cart.html">Cart</a>
+  </nav>
+</header>
 
-  <!-- Featured Products -->
-  <section class="featured-products">
-    <h2>Top Picks</h2>
-    <div class="product-grid">
-      <div class="product-card">
-        <img src="assets/images/dress1.jpg" alt="Pink Ruffle Dress">
-        <h3>Pink Ruffle Dress</h3>
-        <p>$49.99</p>
-        <button onclick="addToCart('Pink Ruffle Dress', 49.99, 'assets/images/dress1.jpg')">Add to Cart</button>
-      </div>
-      <div class="product-card">
-        <img src="assets/images/accessory1.jpg" alt="Skull Earrings">
-        <h3>Skull Earrings</h3>
-        <p>$9.99</p>
-        <button onclick="addToCart('Skull Earrings', 9.99, 'assets/images/accessory1.jpg')">Add to Cart</button>
-      </div>
-      <div class="product-card">
-        <img src="assets/images/shoes1.jpg" alt="High Heel Boots">
-        <h3>High Heel Boots</h3>
-        <p>$39.99</p>
-        <button onclick="addToCart('High Heel Boots', 39.99, 'assets/images/shoes1.jpg')">Add to Cart</button>
-      </div>
-    </div>
-  </section>
+<section class="hero">
+  <h1>BabèRedoll 💀🎀</h1>
+  <p>Y2K • Gothic • Girly • Monster Energy</p>
+  <a href="categories.html" class="btn">Shop Now</a>
+</section>
 
-  <!-- Footer -->
-  <footer class="site-footer">
-    <p>&copy; 2026 BabèRedoll | Follow us on 
-      <a href="#">Instagram</a> | <a href="#">TikTok</a>
-    </p>
-  </footer>
-
-  <script>
-    function addToCart(name, price, img) {
-      let cart = JSON.parse(localStorage.getItem('cart')) || [];
-      cart.push({name, price, img, quantity: 1});
-      localStorage.setItem('cart', JSON.stringify(cart));
-      alert(name + " added to cart!");
-    }
-  </script>
+<footer>
+  © 2026 BabèRedoll 🎀
+</footer>
 
 </body>
 </html>
