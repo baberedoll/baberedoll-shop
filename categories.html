@@ -2,59 +2,47 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Categories - BabèRedoll</title>
+  <title>Categories</title>
   <link rel="stylesheet" href="styles.css">
-  <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Raleway&display=swap" rel="stylesheet">
 </head>
 <body>
-  <!-- Header -->
-  <header class="site-header">
-    <h1 class="logo">BabèRedoll</h1>
-    <nav class="nav">
-      <a href="index.html">Home</a>
-      <a href="categories.html" class="active">Categories</a>
-      <a href="cart.html">Cart</a>
-    </nav>
-  </header>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <h2>Shop by Category</h2>
-    <p>Find your favorite looks with a Monster High twist!</p>
-  </section>
+<header class="site-header">
+  <nav class="nav-left">
+    <a href="index.html">Home</a>
+  </nav>
 
-  <!-- Categories Grid -->
-  <section class="categories">
-    <div class="category-grid">
-      <a href="products.html?category=dresses" class="category-card">
-        <img src="assets/images/dress.jpg" alt="Dresses">
-        <h3>Dresses</h3>
-      </a>
-      <a href="products.html?category=accessories" class="category-card">
-        <img src="assets/images/accessories.jpg" alt="Accessories">
-        <h3>Accessories</h3>
-      </a>
-      <a href="products.html?category=shoes" class="category-card">
-        <img src="assets/images/shoes.jpg" alt="Shoes">
-        <h3>Shoes</h3>
-      </a>
-      <a href="products.html?category=bags" class="category-card">
-        <img src="assets/images/bags.jpg" alt="Bags">
-        <h3>Bags</h3>
-      </a>
-      <a href="products.html?category/tops" class="category-card">
-        <img src="assets/images/tops.jpg" alt="Tops">
-        <h3>Tops</h3>
-      </a>
-    </div>
-  </section>
+  <div class="logo-container">
+    <img src="assets/images/1767784596.jpg" class="logo">
+  </div>
 
-  <!-- Footer -->
-  <footer class="site-footer">
-    <p>&copy; 2026 BabèRedoll | Follow us on 
-      <a href="#">Instagram</a> | <a href="#">TikTok</a>
-    </p>
-  </footer>
+  <nav class="nav-right">
+    <a href="categories.html">Categories</a>
+    <a href="cart.html">Cart</a>
+  </nav>
+</header>
+
+<section class="grid">
+  <div class="card" onclick="location.href='products.html'">
+    <h3>💀 Tops</h3>
+  </div>
+
+  <div class="card" onclick="location.href='products.html'">
+    <h3>🎀 Skirts</h3>
+  </div>
+
+  <div class="card" onclick="location.href='products.html'">
+    <h3>🖤 Dresses</h3>
+  </div>
+
+  <div class="card" onclick="location.href='products.html'">
+    <h3>✨ Accessories</h3>
+  </div>
+</section>
+
+<footer>
+  Shop by category 🎀
+</footer>
 
 </body>
 </html>
