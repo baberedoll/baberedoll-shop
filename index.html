@@ -4,8 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Babèredoll Shop</title>
+
 <!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+
 <style>
   body {
     background-color: #880055; /* Dark pink */
@@ -135,7 +137,7 @@ function addToCart(product) {
   cartCount.textContent = cart.length;
 }
 
-// Checkout function calls backend (Stripe test)
+// Checkout function calls backend (Stripe sandbox)
 function checkout() {
   fetch("https://YOUR_BACKEND_URL/api/create-checkout-session", {
     method: "POST",
@@ -150,9 +152,6 @@ function checkout() {
   });
 }
 </script>
-
-</body>
-</html>
 
 </body>
 </html>
