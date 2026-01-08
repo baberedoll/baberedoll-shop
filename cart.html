@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Cart - BabèRedoll</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Raleway&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <h1 class="logo">BabèRedoll</h1>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="categories.html">Categories</a>
+      <a href="cart.html" class="active">Cart</a>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h2>Your Cart</h2>
+    <p>Review your items before checkout!</p>
+  </section>
+
+  <!-- Cart Section -->
+  <section class="cart-section">
+    <div id="cart-items" class="cart-items">
+      <!-- Cart items will be dynamically added here -->
+    </div>
+    <div class="cart-summary">
+      <h3>Total: $<span id="cart-total">0.00</span></h3>
+      <button id="checkout-btn">Checkout</button>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <p>&copy; 2026 BabèRedoll | Follow us on 
+      <a href="#">Instagram</a> | <a href="#">TikTok</a>
+    </p>
+  </footer>
+
+  <script>
+    // Load cart from localStorage
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const cartItemsContainer = document.getElementById('cart-items');
+    const cartTotalElem = document.getElementById('cart-total');
+
+    function renderCart() {
+      cartItemsContainer.innerHTML = '';
+      let total = 0;
+
+      cart.forEach((item, index) => {
+        total += item.price * item.quantity;
+
+        const itemDiv = document.createElement('div');
+        itemDiv.classList.add('cart-item');
+        itemDiv.innerHTML = `
+          <img src="${item.img}" alt="${item.name}">
+          <div class="item-info">
+            <h4>${item.name}</h4>
+            <p>$${item.price.toFixed(2)}</p>
+            <label>Qty: <input type="number" min="1" value="${item.quantity}" data-index="${index}" class="qty-input"></label>
+            <button data-index="${index}" class="remove-btn">Remove</button>
+          </div>
+        `;
+        cartItemsContainer.appendChild(itemDiv);
+      });
+
+      cartTotalElem.innerText = total.toFixed(2);
+
+      // Add event listeners for remove buttons
+      document.querySelectorAll('.remove-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const i = btn.getAttribute('data-index');
+          cart.splice(i, 1);
+          localStorage.setItem('cart', JSON.stringify(cart));
+          renderCart();
+        });
+      });
+
+      // Add event listeners for quantity changes
+      document.querySelectorAll('.qty-input').forEach(input => {
+        input.addEventListener('change', () => {
+          const i = input.getAttribute('data-index');
+          const val = parseInt(input.value);
+          if (val > 0) {
+            cart[i].quantity = val;
+            localStorage.setItem('cart', JSON.stringify(cart));
+            renderCart();
+          }
+        });
+      });
+    }
+
+    // Initial render
+    renderCart();
+
+    // Checkout button
+    document.getElementById('checkout-btn').addEventListener('click', () => {
+      if (cart.length === 0) {
+        alert("Your cart is empty!");
+        return;
+      }
+      alert("Thank you for shopping! (This is a demo, checkout not implemented.)");
+      cart = [];
+      localStorage.setItem('cart', JSON.stringify(cart));
+      renderCart();
+    });
+  </script>
+
+</body>
+</html>
