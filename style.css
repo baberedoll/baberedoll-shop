@@ -379,6 +379,42 @@ body {
 #checkout-btn:hover {
   background-color: #ff4db8;
 }
+/* Hero Section */
+.hero {
+  background: url('assets/images/hero-bg.jpg') center/cover no-repeat;
+  padding: 100px 20px;
+  text-align: center;
+  color: #fff;
+}
+
+.hero-content h2 {
+  font-family: 'Creepster', cursive;
+  font-size: 48px;
+  color: #FF2D95;
+  margin-bottom: 10px;
+}
+
+.hero-content p {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.cta-btn {
+  padding: 12px 25px;
+  background-color: #FF2D95;
+  color: #fff;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.cta-btn:hover {
+  background-color: #ff4db8;
+}
+
+/* Featured Categories & Products already styled (reuse previous CSS) */
+
 
 
 
