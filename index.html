@@ -1,76 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Babèredoll Shop</title>
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>BabèRedoll Shop</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Raleway&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<header>
-  <img src="images/logo.png" alt="Babèredoll Logo">
-  Babèredoll — Dark Doll Y2K Vibes
-</header>
+  <!-- Header -->
+  <header class="site-header">
+    <h1 class="logo">BabèRedoll</h1>
+    <nav class="nav">
+      <a href="index.html" class="active">Home</a>
+      <a href="categories.html">Categories</a>
+      <a href="cart.html">Cart</a>
+    </nav>
+  </header>
 
-<!-- Categories -->
-<div class="categories">
-  <button onclick="showCategory('tops')">Tops</button>
-  <button onclick="showCategory('skirts')">Skirts</button>
-  <button onclick="showCategory('accessories')">Accessories</button>
-  <button onclick="showCategory('shoes')">Shoes</button>
-</div>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h2>Welcome to BabèRedoll</h2>
+      <p>Your ultimate girly shop with a Monster High twist!</p>
+      <a href="categories.html" class="cta-btn">Shop Now</a>
+    </div>
+  </section>
 
-<!-- Products -->
-<div class="products" id="product-list">
-  <!-- Products will be shown here dynamically -->
-</div>
+  <!-- Featured Categories -->
+  <section class="featured-categories">
+    <h2>Featured Categories</h2>
+    <div class="category-grid">
+      <a href="products.html?category=dresses" class="category-card">
+        <img src="assets/images/dress.jpg" alt="Dresses">
+        <h3>Dresses</h3>
+      </a>
+      <a href="products.html?category=accessories" class="category-card">
+        <img src="assets/images/accessories.jpg" alt="Accessories">
+        <h3>Accessories</h3>
+      </a>
+      <a href="products.html?category=shoes" class="category-card">
+        <img src="assets/images/shoes.jpg" alt="Shoes">
+        <h3>Shoes</h3>
+      </a>
+    </div>
+  </section>
 
-<!-- Cart -->
-<div class="cart-counter">
-  🛒 Cart Items: <span id="cart-count">0</span>
-  <button id="checkout-btn" onclick="checkout()">Checkout</button>
-</div>
+  <!-- Featured Products -->
+  <section class="featured-products">
+    <h2>Top Picks</h2>
+    <div class="product-grid">
+      <div class="product-card">
+        <img src="assets/images/dress1.jpg" alt="Pink Ruffle Dress">
+        <h3>Pink Ruffle Dress</h3>
+        <p>$49.99</p>
+        <button onclick="addToCart('Pink Ruffle Dress', 49.99, 'assets/images/dress1.jpg')">Add to Cart</button>
+      </div>
+      <div class="product-card">
+        <img src="assets/images/accessory1.jpg" alt="Skull Earrings">
+        <h3>Skull Earrings</h3>
+        <p>$9.99</p>
+        <button onclick="addToCart('Skull Earrings', 9.99, 'assets/images/accessory1.jpg')">Add to Cart</button>
+      </div>
+      <div class="product-card">
+        <img src="assets/images/shoes1.jpg" alt="High Heel Boots">
+        <h3>High Heel Boots</h3>
+        <p>$39.99</p>
+        <button onclick="addToCart('High Heel Boots', 39.99, 'assets/images/shoes1.jpg')">Add to Cart</button>
+      </div>
+    </div>
+  </section>
 
-<script src="cart.js"></script>
-<script>
-const productsData = {
-  tops: [
-    {id:"top1", name:"Glitter Skull Top", price:5000, img:"https://via.placeholder.com/200x200.png?text=Glitter+Skull+Top"},
-    {id:"top2", name:"Pink Y2K Top", price:4500, img:"https://via.placeholder.com/200x200.png?text=Pink+Y2K+Top"}
-  ],
-  skirts: [
-    {id:"skirt1", name:"Dark Doll Skirt", price:4500, img:"https://via.placeholder.com/200x200.png?text=Dark+Doll+Skirt"}
-  ],
-  accessories: [
-    {id:"acc1", name:"Y2K Choker", price:1500, img:"https://via.placeholder.com/200x200.png?text=Y2K+Choker"}
-  ],
-  shoes: [
-    {id:"shoe1", name:"Dark Doll Boots", price:6000, img:"https://via.placeholder.com/200x200.png?text=Dark+Doll+Boots"}
-  ]
-};
+  <!-- Footer -->
+  <footer class="site-footer">
+    <p>&copy; 2026 BabèRedoll | Follow us on 
+      <a href="#">Instagram</a> | <a href="#">TikTok</a>
+    </p>
+  </footer>
 
-const productList = document.getElementById("product-list");
-
-function showCategory(cat) {
-  productList.innerHTML = ''; // clear previous products
-  productsData[cat].forEach(p => {
-    const div = document.createElement("div");
-    div.classList.add("card");
-    div.innerHTML = `
-      <img src="${p.img}" alt="${p.name}">
-      <h3>${p.name}</h3>
-      <p class="price">LKR ${p.price}</p>
-      <button onclick='addToCart(${JSON.stringify(p)})'>💖 Add to Cart</button>
-    `;
-    productList.appendChild(div);
-  });
-}
-
-// Show tops by default
-showCategory('tops');
-</script>
+  <script>
+    function addToCart(name, price, img) {
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+      cart.push({name, price, img, quantity: 1});
+      localStorage.setItem('cart', JSON.stringify(cart));
+      alert(name + " added to cart!");
+    }
+  </script>
 
 </body>
 </html>
